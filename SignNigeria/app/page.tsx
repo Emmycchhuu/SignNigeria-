@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronDown } from "lucide-react"
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -66,7 +65,6 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-screen pt-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden"
       >
-        {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
             className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"
@@ -85,7 +83,6 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Left Content */}
           <div className="space-y-6 animate-slideInLeft">
             <div className="inline-block px-4 py-2 rounded-full bg-secondary/20 border border-secondary/40 mt-12">
               <p className="text-sm font-medium text-secondary">Nigeria On-Chain</p>
@@ -132,7 +129,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Image */}
           <div className="relative h-96 md:h-full animate-slideInRight">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-3xl animate-glow" />
             <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
@@ -146,66 +142,51 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-accent" />
-        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Join Nigeria's Decentralized Future</h2>
-            <p className="text-xl text-foreground/70">
-              Be part of a movement empowering communities and preserving culture through Web3
-            </p>
-          </div>
-
-          {/* Text Buttons for Social Links */}
-          <div className="flex justify-center flex-wrap gap-4 pt-8">
-            <a
-              href="https://x.com/africasigngiant?s=21"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-            >
-              X
-            </a>
-            <a
-              href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-            >
-              YouTube
-            </a>
-            <a
-              href="https://medium.com/@AfricaSIGNGiant"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-            >
-              Medium
-            </a>
-            <a
-              href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-            >
-              TikTok
-            </a>
-            <a
-              href="https://t.me/signigeria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-            >
-              Telegram
-            </a>
-          </div>
+      {/* Social Links */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto flex justify-center flex-wrap gap-4">
+          <a
+            href="https://x.com/africasigngiant?s=21"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+          >
+            X
+          </a>
+          <a
+            href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+          >
+            YouTube
+          </a>
+          <a
+            href="https://medium.com/@AfricaSIGNGiant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+          >
+            Medium
+          </a>
+          <a
+            href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+          >
+            TikTok
+          </a>
+          <a
+            href="https://t.me/signigeria"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+          >
+            Telegram
+          </a>
         </div>
       </section>
     </div>
