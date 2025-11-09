@@ -251,10 +251,15 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <button className="px-8 py-4 rounded-full bg-primary text-white hover:bg-primary/90 font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50">
-              Join Discord
-            </button>
+          <div className="flex flex-wrap justify-center gap-4 pt-8">
+            <a
+              href="https://t.me/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full bg-primary text-white hover:bg-primary/90 font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
+            >
+              Join Telegram
+            </a>
             <a
               href="https://x.com/africasigngiant?s=21"
               target="_blank"
@@ -263,65 +268,33 @@ export default function Home() {
             >
               Follow on X
             </a>
+            <a
+              href="https://youtube.com/@signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border border-primary/50 text-primary hover:bg-primary/10 font-semibold transition-all duration-300"
+            >
+              Watch on YouTube
+            </a>
+            <a
+              href="https://github.com/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 font-semibold transition-all duration-300"
+            >
+              Explore on GitHub
+            </a>
+            <a
+              href="https://instagram.com/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-semibold transition-all duration-300"
+            >
+              Follow on Instagram
+            </a>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-border/30 bg-card/30 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h3 className="font-bold text-white mb-4">SIGNigeria</h3>
-              <p className="text-foreground/60 text-sm">Bringing Nigeria on-chain through community-driven Web3</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Platforms</h4>
-              <ul className="space-y-2 text-sm text-foreground/60">
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    Marketplace
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    EduChain
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    CultureChain
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-white mb-4">Connect</h4>
-              <ul className="space-y-2 text-sm text-foreground/60">
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    Discord
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-accent transition-colors">
-                    GitHub
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border/30 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-foreground/60">
-            <p>&copy; 2025 SIGNigeria. All rights reserved.</p>
-            <p>Empowering Communities • Preserving Culture • Building Web3</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
