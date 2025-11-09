@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
+import { FaXTwitter, FaYoutube, FaMedium, FaTiktok, FaTelegramPlane } from "react-icons/fa6" // icons
+
 import { SimpleIcon } from "@/components/simple-icons"
 
 export default function Home() {
@@ -12,10 +14,8 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return
-
       const scrollY = window.scrollY
       const elements = heroRef.current.querySelectorAll("[data-scroll]")
-
       elements.forEach((el) => {
         const element = el as HTMLElement
         const offset = element.getAttribute("data-scroll-offset") || "30"
@@ -157,90 +157,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Mission */}
-            <div className="space-y-4 group hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-white">Our Mission</h3>
-              <p className="text-lg text-foreground/70 leading-relaxed">
-                To create a decentralized platform that empowers Nigerian communities by integrating their
-                socio-economic, cultural, and historical assets into the blockchain economy.
-              </p>
-              <div className="h-1 w-16 bg-gradient-to-r from-primary to-accent rounded-full" />
-            </div>
-
-            {/* Vision */}
-            <div className="space-y-4 group hover:scale-105 transition-transform duration-300">
-              <h3 className="text-3xl font-bold text-white">Our Vision</h3>
-              <p className="text-lg text-foreground/70 leading-relaxed">
-                A fully decentralized Nigeria where blockchain connects businesses, education, healthcare, and heritage
-                with global opportunities.
-              </p>
-              <div className="h-1 w-16 bg-gradient-to-r from-accent to-secondary rounded-full" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">Core Values</h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Community Driven", color: "from-primary", icon: "community" },
-              { title: "Decentralization", color: "from-accent", icon: "link" },
-              { title: "Transparency", color: "from-secondary", icon: "eye" },
-              { title: "Cultural Sovereignty", color: "from-primary", icon: "building" },
-              { title: "Innovation through Web3", color: "from-accent", icon: "lightning" },
-              { title: "Inclusion & Education", color: "from-secondary", icon: "book" },
-            ].map((value, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-transparent mb-4 group-hover:scale-110 transition-transform flex items-center justify-center text-accent">
-                  <SimpleIcon type={value.icon} size="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-white">{value.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ecosystem Platforms */}
-      <section id="ecosystem" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">SIGNigeria Ecosystem</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Marketplace", desc: "Peer-to-peer commerce using crypto assets", icon: "shopping" },
-              { title: "Health Hub", desc: "Blockchain-based health records & consultations", icon: "hospital" },
-              { title: "EduChain", desc: "Smart learning platform with verified credentials", icon: "book" },
-              { title: "CultureChain", desc: "NFT-based cultural artifacts & preservation", icon: "palette" },
-              { title: "Media Network", desc: "Decentralized content & news platform", icon: "newspaper" },
-              { title: "Entertainment", desc: "Creator tools & token-gated experiences", icon: "filmstrip" },
-            ].map((platform, idx) => (
-              <div
-                key={idx}
-                className="group p-6 rounded-2xl bg-gradient-to-br from-card via-card/50 to-transparent border border-border/50 hover:border-accent/50 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-2"
-              >
-                <div className="w-16 h-16 mb-4 group-hover:scale-125 transition-transform text-accent flex items-center">
-                  <SimpleIcon type={platform.icon} size="w-12 h-12" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{platform.title}</h3>
-                <p className="text-foreground/60">{platform.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -251,46 +167,56 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-8">
-            <a
-              href="https://t.me/signigeria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full bg-primary text-white hover:bg-primary/90 font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
-            >
-              Join Telegram
-            </a>
+          {/* Social Icons */}
+          <div className="flex justify-center flex-wrap gap-6 pt-8">
             <a
               href="https://x.com/africasigngiant?s=21"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-semibold transition-all duration-300"
+              className="text-white hover:text-accent transition-transform hover:scale-110"
+              aria-label="Follow on X"
             >
-              Follow on X
+              <FaXTwitter size={28} />
             </a>
+
             <a
-              href="https://youtube.com/@signigeria"
+              href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-primary/50 text-primary hover:bg-primary/10 font-semibold transition-all duration-300"
+              className="text-white hover:text-primary transition-transform hover:scale-110"
+              aria-label="Watch on YouTube"
             >
-              Watch on YouTube
+              <FaYoutube size={30} />
             </a>
+
             <a
-              href="https://github.com/signigeria"
+              href="https://medium.com/@AfricaSIGNGiant"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 font-semibold transition-all duration-300"
+              className="text-white hover:text-secondary transition-transform hover:scale-110"
+              aria-label="Read on Medium"
             >
-              Explore on GitHub
+              <FaMedium size={26} />
             </a>
+
             <a
-              href="https://instagram.com/signigeria"
+              href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-semibold transition-all duration-300"
+              className="text-white hover:text-accent transition-transform hover:scale-110"
+              aria-label="Follow on TikTok"
             >
-              Follow on Instagram
+              <FaTiktok size={26} />
+            </a>
+
+            <a
+              href="https://t.me/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-blue-400 transition-transform hover:scale-110"
+              aria-label="Join Telegram"
+            >
+              <FaTelegramPlane size={28} />
             </a>
           </div>
         </div>
