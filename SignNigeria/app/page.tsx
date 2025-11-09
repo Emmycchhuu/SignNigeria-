@@ -15,7 +15,6 @@ export default function Home() {
       const elements = heroRef.current.querySelectorAll("[data-scroll]")
       elements.forEach((el) => {
         const element = el as HTMLElement
-        const offset = element.getAttribute("data-scroll-offset") || "30"
         element.style.transform = `translateY(${scrollY * 0.5}px)`
       })
     }
@@ -150,4 +149,65 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown class
+          <ChevronDown className="w-6 h-6 text-accent" />
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Join Nigeria's Decentralized Future</h2>
+            <p className="text-xl text-foreground/70">
+              Be part of a movement empowering communities and preserving culture through Web3
+            </p>
+          </div>
+
+          {/* Text Buttons for Social Links */}
+          <div className="flex justify-center flex-wrap gap-4 pt-8">
+            <a
+              href="https://x.com/africasigngiant?s=21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+            >
+              X
+            </a>
+            <a
+              href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+            >
+              YouTube
+            </a>
+            <a
+              href="https://medium.com/@AfricaSIGNGiant"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+            >
+              Medium
+            </a>
+            <a
+              href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+            >
+              TikTok
+            </a>
+            <a
+              href="https://t.me/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
+            >
+              Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
