@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { ChevronDown } from "lucide-react"
+import { SimpleIcon } from "@/components/simple-icons"
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -10,10 +12,13 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return
+
       const scrollY = window.scrollY
       const elements = heroRef.current.querySelectorAll("[data-scroll]")
+
       elements.forEach((el) => {
         const element = el as HTMLElement
+        const offset = element.getAttribute("data-scroll-offset") || "30"
         element.style.transform = `translateY(${scrollY * 0.5}px)`
       })
     }
@@ -65,6 +70,7 @@ export default function Home() {
         ref={heroRef}
         className="relative min-h-screen pt-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden"
       >
+        {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
             className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"
@@ -83,6 +89,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Left Content */}
           <div className="space-y-6 animate-slideInLeft">
             <div className="inline-block px-4 py-2 rounded-full bg-secondary/20 border border-secondary/40 mt-12">
               <p className="text-sm font-medium text-secondary">Nigeria On-Chain</p>
@@ -129,6 +136,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Right Image */}
           <div className="relative h-96 md:h-full animate-slideInRight">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 rounded-3xl animate-glow" />
             <div className="relative w-full h-full rounded-3xl overflow-hidden flex items-center justify-center">
@@ -142,53 +150,199 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Social Links */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto flex justify-center flex-wrap gap-4">
-          <a
-            href="https://x.com/africasigngiant?s=21"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-          >
-            X
-          </a>
-          <a
-            href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-          >
-            YouTube
-          </a>
-          <a
-            href="https://medium.com/@AfricaSIGNGiant"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-          >
-            Medium
-          </a>
-          <a
-            href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-          >
-            TikTok
-          </a>
-          <a
-            href="https://t.me/signigeria"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full border border-secondary/50 text-secondary hover:bg-secondary/10 transition-all text-sm font-medium"
-          >
-            Telegram
-          </a>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <ChevronDown className="w-6 h-6 text-accent" />
         </div>
       </section>
+
+      {/* Mission & Vision */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Mission */}
+            <div className="space-y-4 group hover:scale-105 transition-transform duration-300">
+              <h3 className="text-3xl font-bold text-white">Our Mission</h3>
+              <p className="text-lg text-foreground/70 leading-relaxed">
+                To create a decentralized platform that empowers Nigerian communities by integrating their
+                socio-economic, cultural, and historical assets into the blockchain economy.
+              </p>
+              <div className="h-1 w-16 bg-gradient-to-r from-primary to-accent rounded-full" />
+            </div>
+
+            {/* Vision */}
+            <div className="space-y-4 group hover:scale-105 transition-transform duration-300">
+              <h3 className="text-3xl font-bold text-white">Our Vision</h3>
+              <p className="text-lg text-foreground/70 leading-relaxed">
+                A fully decentralized Nigeria where blockchain connects businesses, education, healthcare, and heritage
+                with global opportunities.
+              </p>
+              <div className="h-1 w-16 bg-gradient-to-r from-accent to-secondary rounded-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">Core Values</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Community Driven", color: "from-primary", icon: "community" },
+              { title: "Decentralization", color: "from-accent", icon: "link" },
+              { title: "Transparency", color: "from-secondary", icon: "eye" },
+              { title: "Cultural Sovereignty", color: "from-primary", icon: "building" },
+              { title: "Innovation through Web3", color: "from-accent", icon: "lightning" },
+              { title: "Inclusion & Education", color: "from-secondary", icon: "book" },
+            ].map((value, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-card/60 border border-border/50 hover:border-primary/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group"
+              >
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-transparent mb-4 group-hover:scale-110 transition-transform flex items-center justify-center text-accent">
+                  <SimpleIcon type={value.icon} size="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">{value.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ecosystem Platforms */}
+      <section id="ecosystem" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/30">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">SIGNigeria Ecosystem</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Marketplace", desc: "Peer-to-peer commerce using crypto assets", icon: "shopping" },
+              { title: "Health Hub", desc: "Blockchain-based health records & consultations", icon: "hospital" },
+              { title: "EduChain", desc: "Smart learning platform with verified credentials", icon: "book" },
+              { title: "CultureChain", desc: "NFT-based cultural artifacts & preservation", icon: "palette" },
+              { title: "Media Network", desc: "Decentralized content & news platform", icon: "newspaper" },
+              { title: "Entertainment", desc: "Creator tools & token-gated experiences", icon: "filmstrip" },
+            ].map((platform, idx) => (
+              <div
+                key={idx}
+                className="group p-6 rounded-2xl bg-gradient-to-br from-card via-card/50 to-transparent border border-border/50 hover:border-accent/50 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 hover:-translate-y-2"
+              >
+                <div className="w-16 h-16 mb-4 group-hover:scale-125 transition-transform text-accent flex items-center">
+                  <SimpleIcon type={platform.icon} size="w-12 h-12" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">{platform.title}</h3>
+                <p className="text-foreground/60">{platform.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white">Join Nigeria's Decentralized Future</h2>
+            <p className="text-xl text-foreground/70">
+              Be part of a movement empowering communities and preserving culture through Web3
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-8">
+            <a
+              href="https://medium.com/@AfricaSIGNGiant"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-medium text-sm transition-all duration-300"
+            >
+              Medium
+            </a>
+            <a
+              href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-medium text-sm transition-all duration-300"
+            >
+              YouTube
+            </a>
+            <a
+              href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-medium text-sm transition-all duration-300"
+            >
+              TikTok
+            </a>
+            <a
+              href="https://t.me/signigeria"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-accent/50 text-accent hover:bg-accent/10 font-medium text-sm transition-all duration-300"
+            >
+              Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border/30 bg-card/30 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="font-bold text-white mb-4">SIGNigeria</h3>
+              <p className="text-foreground/60 text-sm">Bringing Nigeria on-chain through community-driven Web3</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-4">Platforms</h4>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    Marketplace
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    EduChain
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    CultureChain
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-white mb-4">Connect</h4>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    Discord
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    Twitter
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-accent transition-colors">
+                    GitHub
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-border/30 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-foreground/60">
+            <p>&copy; 2025 SIGNigeria. All rights reserved.</p>
+            <p>Empowering Communities • Preserving Culture • Building Web3</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
