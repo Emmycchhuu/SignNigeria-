@@ -4,9 +4,6 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
-import { FaXTwitter, FaYoutube, FaMedium, FaTiktok, FaTelegramPlane } from "react-icons/fa6" // icons
-
-import { SimpleIcon } from "@/components/simple-icons"
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -153,74 +150,4 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown className="w-6 h-6 text-accent" />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Join Nigeria's Decentralized Future</h2>
-            <p className="text-xl text-foreground/70">
-              Be part of a movement empowering communities and preserving culture through Web3
-            </p>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex justify-center flex-wrap gap-6 pt-8">
-            <a
-              href="https://x.com/africasigngiant?s=21"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-accent transition-transform hover:scale-110"
-              aria-label="Follow on X"
-            >
-              <FaXTwitter size={28} />
-            </a>
-
-            <a
-              href="https://youtube.com/@africasigngiant?si=CgsYxqbJyLt_7Dfm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-primary transition-transform hover:scale-110"
-              aria-label="Watch on YouTube"
-            >
-              <FaYoutube size={30} />
-            </a>
-
-            <a
-              href="https://medium.com/@AfricaSIGNGiant"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-secondary transition-transform hover:scale-110"
-              aria-label="Read on Medium"
-            >
-              <FaMedium size={26} />
-            </a>
-
-            <a
-              href="https://www.tiktok.com/@africasigngiant?_r=1&_t=ZS-91BMyCJ5BDj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-accent transition-transform hover:scale-110"
-              aria-label="Follow on TikTok"
-            >
-              <FaTiktok size={26} />
-            </a>
-
-            <a
-              href="https://t.me/signigeria"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-transform hover:scale-110"
-              aria-label="Join Telegram"
-            >
-              <FaTelegramPlane size={28} />
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
+          <ChevronDown class
